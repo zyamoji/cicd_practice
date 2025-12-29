@@ -13,3 +13,13 @@ jobs:
     steps:
       - run: echo "${PASSWORD}"
       - run: echo "${PASSWORD:0:1} ${PASSWORD#?}"
+  printenv:
+    runs-on: ubuntu-latest
+    steps:
+      - run: printenv | grep 'LITERAL_'
+    env:
+      LITERAL_NULL: ${{ null }}
+      LITERAL_BOOLEAN: ${{ true }}
+      LITERAL_NUMBER: ${{ 1234 }}
+      LITERAL_STRING: ${{ 'Hello!' }}
+      LIETRAL_OMIT_STRING: World
