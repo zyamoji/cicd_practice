@@ -23,3 +23,12 @@ jobs:
       LITERAL_NUMBER: ${{ 1234 }}
       LITERAL_STRING: ${{ 'Hello!' }}
       LITERAL_OMIT_STRING: World
+  compare_string:
+    runs-on: ubuntu-latest
+    steps:
+      - run: printenv | grep '_FUNC'
+        env:
+          CONTAINS_FUNC: ${{ contains('Hello World', 'ell') }}
+          STARTS_WITH_FUNC: ${{ startsWith('Hello World', 'He') }}
+          ENDS_WITH_FUNC: ${{ endsWith('Hello', 'lo') }}
+          CONTAINS_FUNC_ARRAY: ${{ contains(github.event.issue.labels.*.name, 'bug') }}
