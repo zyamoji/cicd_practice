@@ -6,4 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello"
-
+  share:
+    runs-on: ubuntu-latest
+    steps:
+      - run: export RESULT="hello"
+      - run: echo "${RESULT}"
