@@ -6,23 +6,4 @@ jobs:
     steps:
       - run: echo "Hello, World!"
       - uses: actions/checkout@v4
-  generate:
-    runs-on: ubuntu-latest
-    steps:
-      - run: printenv | grep '_FUNC'
-        env:
-          FORMAT_FUNC: ${{ format('{0}, {1}.', 'Hi', 'world') }}
-          JOIN_FUNC: ${{ join(github.event.*.html_url, ',') }}
-  json_dump:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "${CONTEXT}"
-        env:
-          CONTEXT: ${{ toJson(github) }}
-  hash:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: echo "${HASH}"
-        env:
-          HASH: ${{ hashFiles('.github/workflows/*.yml') }}
+  
