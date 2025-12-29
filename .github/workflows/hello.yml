@@ -6,3 +6,10 @@ jobs:
     steps:
       - run: echo "Hello, World!"
       - uses: actions/checkout@v4
+  print:
+    runs-on: ubuntu-latest
+    env:
+      PASSWORD: ${{ secrets.PASSWORD }}
+    steps:
+      - run: echo "${PASSWORD}"
+      - run: echo "${PASSWORD:0:1} ${PASSWORD:#?}"
