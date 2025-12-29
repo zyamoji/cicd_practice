@@ -7,6 +7,7 @@ jobs:
       - run: echo "Hello, World!"
       - uses: actions/checkout@v4
   skip-or-run:
+    if: ${{ github.actor == 'octocat' }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello!"
