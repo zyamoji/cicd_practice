@@ -1,4 +1,5 @@
 name: Test
+run-name: "4.2.3"
 on:
     pull_request:
         paths: ['go/**/*.go']
